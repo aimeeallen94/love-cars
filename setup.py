@@ -1,3 +1,4 @@
+import csv
 import gspread
 import uuid
 import pandas as pd
@@ -19,8 +20,6 @@ Removing duplicates from datasheet to prevent errors during analysis
 """
 
 spreadsheet = SHEET.worksheet('cars').get_all_values()
-# new_spreadsheet = spreadsheet.drop_duplicates(subset=None, keep='first', inplace=False)
-# print(new_spreadsheet)
 
 def targeting_each_column():
     """
@@ -52,4 +51,4 @@ def creating_uuid():
         id = uuid.uuid1()
         sheet.update_cell(row + 1, 1, str(id))
     
-creating_uuid()
+# creating_uuid()
