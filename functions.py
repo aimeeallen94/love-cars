@@ -1,3 +1,7 @@
-my_list = [1,2,3,4,4,4,5,5,2]
-my_new_list = my_list.drop_duplicates(subset=None, keep='first', inplace=False)
-print(my_new_list)
+def print_cars():
+     user_input = input("Please enter a car make: ")
+     for car in cars:
+         if user_input in car:
+             print(car)
+
+print_cars()
