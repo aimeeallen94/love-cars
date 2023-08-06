@@ -3,7 +3,6 @@ import gspread
 import uuid
 import pandas as pd
 import numpy as np 
-import locale
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -17,9 +16,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_cars_2023')
 
-
 cars = SHEET.worksheet('cars').get_all_values()
-
 
 """
 Targeting each column in the spreadsheet to access for data analysis in future functions 
@@ -56,60 +53,47 @@ def print_num_fuel():
 #print_num_fuel()
 
 def print_body_type():
-#    sedan_body_type = []
-#    suv_body_type = []
-#    convertible_body_type = []
-#    truck_body_type = []
-#    hatchback_body_type = []
-#    coupe_body_type = []
-#     wagon_body_type = []
-#   minivan_body_type = []
-    body_type_input = input('Which body type would you like to count?')
-#    for car in cars:
-#        if body_type_input == 'Sedan' in car:
-#            sedan_body_type.append(car)
-#            print(len(sedan_body_type))
-#        elif 'SUV' in car:
-#            suv_body_type.append(car)
-#            print(len(suv_body_type))
-#        elif 'Convertible' in car:
-#            convertible_body_type.append(car)
-#            print(len(convertible_body_type))
-#        elif 'Truck' in car:
-#            truck_body_type.append(car)
-#            print(len(truck_body_type))
-#        elif 'Hatchback' in car:
-#            hatchback_body_type.append(car)
-#            print(len(hatchback_body_type))
-#        elif 'Coupe' in car:
-#            coupe_body_type.append(car)
-#            print(len(coupe_body_type))
-#        elif 'Wagon' in car:
-#           wagon_body_type.append(car)
-#            print(len(wagon_body_type))
-#        elif 'Minivan' in car:
-#            minivan_body_type.append(car)
-#            print(len(minivan_body_type))
-#    print(body_type)
+    """
+    Function to print out count of desired body type of car.
+    """
+    print('Your options are as follows: SUV, Sedan, Truck, Wagon, Minivan, Coupe, Convertible, Hatchback')        
+    
+    body_type_input = input('Which body type would you like to count?')  
+
     if body_type_input == 'SUV':
         SUV_count = body_type.count('SUV')
-        print(F'There were ${SUV_count} cars with the body type of an SUV')
+        print(F'There were {SUV_count} cars with the body type of an SUV')
     if body_type_input == 'Sedan':
-        sedan_count = body_type.count('Sedan')   
-        print(body_type.count('Sedan'))
+        sedan_count = body_type.count('Sedan')               
+        print(F'There were {sedan_count} cars with the body type of a Sedan')
     if body_type_input == 'Truck':
-        print(body_type.count('Truck'))
-    print(body_type.count('Wagon'))
-    print(body_type.count('Minivan'))   
-    print(body_type.count('Coupe'))                        
-    print(body_type.count('Convertible'))
-    print(body_type.count('Hatchback'))
+        truck_count = body_type.count('Truck')
+        print(F'There were {truck_count} cars with the body type of a Truck')
+    if body_type_input == 'Wagon':
+        wagon_count = body_type.count('Wagon')          
+        print(F'There were {wagon_count} cars with the body type of a Wagon')
+    if body_type_input == 'Minivan':
+        minivan_count = body_type.count('Minivan')            
+        print(F'There were {minivan_count} cars with the body type of a Minivan')
+    if body_type_input == 'Coupe':
+        coupe_count = body_type.count('Coupe')        
+        print(F'There were {coupe_count} cars with the body type of a Coupe')
+    if body_type_input == 'Convertible':
+        convertible_count = body_type.count('Convertible')                        
+        print(F'There were {convertible_count} cars with the body type of a Convertible')
+    if body_type_input == 'Hatchback':
+        hatchback_count = body_type.count('Hatchback')
+        print(F'There were {hatchback_count} cars with the body type of a Hatchback')
+    else:
+        print('Please enter one of the following valid options: SUV, Sedan, Truck, Wagon, Minivan, Coupe, Convertible, Hatchback.')
 
-print_body_type()
+
+#print_body_type()
 
 def calculate_average_max_min_cost():
     """
-    Function to display the average cost of a car in 2023 and at the lowest and highest cost of a car.
+    Function to display th#e average cost of a car in 2023 and at 
+    the lowest and highest cost of a car.
     """
     max_min_average_input = input('Would you like to find out the maximum, minimum or average cost of a car in 2023?')
 
@@ -128,7 +112,6 @@ def calculate_average_max_min_cost():
         no_comma = int(num)
         cost_list.append(no_comma)
 
-
     average = np.mean(cost_list)
     minimum = np.min(cost_list)
     maximum = np.max(cost_list)
@@ -144,18 +127,48 @@ def calculate_average_max_min_cost():
 
 #calculate_average_max_min_cost()
 
+def calculate_total_car_sales():
+    """
+    Function to display total car sales in 2023 so far
+    """
+    sales_input = input('Would you like to know the total number of cars sold this year so far? Y/N')
+    # Removing heading from sales list to allow for list to be converted into integers
+    sales.pop(0)
 
+    # Removing commas from sales values so they can be converted to integers
+    no_comma_sales = []
+    for num in sales:
+        new_sale_num = num.replace(',','')
+        no_comma_sales.append(new_sale_num)
 
-#def creating_uuid():
-#    """
-#    Creating unique identifier for each row entry in spreadsheet
-#    """
-#    cars = SHEET.worksheet('cars').get_all_values()
+    # Converting list of strings to integers
+    sales_list = []    
+    for num in no_comma_sales:
+        no_comma_sale = int(num)
+        sales_list.append(no_comma_sale)
 
+    total_car_sales = np.sum(sales_list)
+    if sales_input == 'Y':
+        print(F'In 2023 so far there has been {total_car_sales} cars sold.')
+    else:
+        print("Let's proceed to the next one!")
 
-#    for row, col in enumerate(cars):
-#        id = uuid.uuid1()
-#        cars.update_cell(row + 1, 1, str(id))
-#    print(cars)
+#calculate_total_car_sales()
 
-#creating_uuid()
+def print_info_based_on_model():
+    """
+    Function that accepts car name and prints details about the car as a result.
+    """
+# Removing first entry from model list as this is the heading and does not need analysis
+model.pop(0)
+
+model_input = input('Which model would you like more information on?')
+
+for model in cars:
+    if model_input in model:
+        print(model)
+    #else:
+    #    print('Please enter valid car model as seen on spreadsheet')
+    #    break
+
+#print_info_based_on_model()
