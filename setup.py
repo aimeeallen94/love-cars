@@ -18,9 +18,11 @@ SHEET = GSPREAD_CLIENT.open('love_cars_2023')
 
 cars = SHEET.worksheet('cars').get_all_values()
 
+
 """
-Targeting each column in the spreadsheet to access for data analysis in future functions 
+Targeting each column in the spreadsheet to access in future functions. 
 """
+
 car_make = SHEET.worksheet('cars').col_values(1)
 model = SHEET.worksheet('cars').col_values(2)
 year = SHEET.worksheet('cars').col_values(3)
@@ -31,26 +33,69 @@ transmission_type = SHEET.worksheet('cars').col_values(7)
 top_speed = SHEET.worksheet('cars').col_values(8)
 cost = SHEET.worksheet('cars').col_values(9)      
 rating = SHEET.worksheet('cars').col_values(10)
-sales = SHEET.worksheet('cars').col_values(11)   
+sales = SHEET.worksheet('cars').col_values(11)
+headings = SHEET.worksheet('cars').row_values(1)   
+
+#df = pd.DataFrame.from_dict(cars)
+
 
 def print_cars():
-     user_input = input("Please enter a car make: ")
-     for car in cars:
-         if user_input in car:
-             print(car)
-
-#print_cars()
-
-def print_num_fuel():
-    fuel_list = []
-    fuel_user_input = input('Which fuel type would you like to count?')
+    user_input = input("Please enter a car make: ")
     for car in cars:
-        if "Gasoline" in car:
-            fuel_list.append(car)
-    
-    print(len(fuel_list))
+        if user_input in car:
+            result1 = headings
+            result2 = car
+            dictionary = dict(zip(result1, result2))
+            print(dictionary)
 
-#print_num_fuel()
+print_cars()
+
+def calculate_percentage_transmission():
+    """
+    Function to calculate the percentage of each transmission type of the data set. 
+    """
+
+    automatic = transmission_type.count('Automatic')
+    cvt = transmission_type.count('CVT')
+    manual = transmission_type.count('Manual')
+    # transmission length -1 to remove the header from this column length
+    transmission_length = (len(transmission_type)) - 1
+
+    percentage_question = input('Which tranmission would you like to calculate the percentage of? ')
+
+    if percentage_question == 'Automatic':
+        automatic_percentage = (automatic / transmission_length) * 100
+        print(F'Automatic cars take up {int(automatic_percentage)}% of this dataset')
+    if percentage_question == 'CVT':
+        cvt_percentage = (cvt / transmission_length) * 100
+        print(F'CVT cars take up {int(cvt_percentage)}% of this dataset')
+    if percentage_question == 'Manual':
+        manual_percentage = (manual / transmission_length) * 100
+        print(F'Manual cars take up {int(manual_percentage)}% of this dataset')
+    else:
+        print('Please enter a valid transmission type: Automatic, CVT, Manual.')
+
+def print_num_transmission_type():
+    """
+    Funciton to return the count of desired transmission type of car.
+    """
+    transmission_input = input('Which transmission type would you like to count? ')
+    
+    if transmission_input == 'Automatic':
+        automatic = transmission_type.count('Automatic')
+        print(F'There are {automatic} cars in 2023 with an automatic transmission.')
+    if transmission_input == 'CVT':
+        cvt = transmission_type.count('CVT')
+        print(F'There are {cvt} cars in 2023 with a CVT transmission.')
+    if transmission_input == 'Manual':
+        manual = transmission_type.count('Manual')
+        print(F'There is {manual} car in 2023 with a manual transmission.')
+    else:
+        print('Please enter valid transmission type: Automatic, CVT or Manual.')
+    calculate_percentage_transmission()
+
+#print_num_transmission_type()
+
 
 def print_body_type():
     """
@@ -58,7 +103,7 @@ def print_body_type():
     """
     print('Your options are as follows: SUV, Sedan, Truck, Wagon, Minivan, Coupe, Convertible, Hatchback')        
     
-    body_type_input = input('Which body type would you like to count?')  
+    body_type_input = input('Which body type would you like to count? ')  
 
     if body_type_input == 'SUV':
         SUV_count = body_type.count('SUV')
@@ -95,7 +140,7 @@ def calculate_average_max_min_cost():
     Function to display th#e average cost of a car in 2023 and at 
     the lowest and highest cost of a car.
     """
-    max_min_average_input = input('Would you like to find out the maximum, minimum or average cost of a car in 2023?')
+    max_min_average_input = input('Would you like to find out the maximum, minimum or average cost of a car in 2023? ')
 
     # Removing first row in Price column to remove the word 'Price' from list to allow data cleaning
     cost.pop(0)
@@ -124,6 +169,8 @@ def calculate_average_max_min_cost():
 
     elif max_min_average_input == 'Maximum':
         print(F'The highest price of a car in 2023 is ${maximum}.')
+    else:
+        print('Please enter a valid option: Maximum, Minimum or Average.')
 
 #calculate_average_max_min_cost()
 
@@ -131,7 +178,7 @@ def calculate_total_car_sales():
     """
     Function to display total car sales in 2023 so far
     """
-    sales_input = input('Would you like to know the total number of cars sold this year so far? Y/N')
+    sales_input = input('Would you like to know the total number of cars sold this year so far? Y/N ')
     # Removing heading from sales list to allow for list to be converted into integers
     sales.pop(0)
 
@@ -162,13 +209,32 @@ def print_info_based_on_model():
 # Removing first entry from model list as this is the heading and does not need analysis
 model.pop(0)
 
-model_input = input('Which model would you like more information on?')
+#model_input = input('Which model would you like more information on? ')
 
-for model in cars:
-    if model_input in model:
-        print(model)
+#for model in cars:
+#    if model_input in model:
+#        print(model)
     #else:
     #    print('Please enter valid car model as seen on spreadsheet')
     #    break
 
 #print_info_based_on_model()
+
+
+def selecting_questions():
+    print("Hello! Welcome to Cars 2023 info session! \n")
+    print('We have a range of questions you can get the answer of here: \n') 
+    print('If you would like to find out information based on car model select 1 \n') 
+    print('If you would like to find out how many car runs on a specific fuel type select 2 \n') 
+    print('If you would like to find out the mininumn, maximum and average car cost select 3 \n') 
+    print("Don't worry you can make your way through all if you are interested! \n")
+ 
+    question_selection_input = input('Which question would you like to get the answer of? ')
+    if question_selection_input == '1':
+        print_cars()
+    if question_selection_input == '2':
+        print_num_transmission_type()
+    if question_selection_input == '3':
+        calculate_average_max_min_cost()
+
+#selecting_questions()
