@@ -68,7 +68,7 @@ def calculate_percentage_transmission():
     transmission_length = (len(transmission_type)) - 1
 
     percentage_question = input('Which tranmission would you \
-    like to calculate the percentage of? \n')
+    like to see the percetange of? \n')
 
     if percentage_question == 'Automatic':
         automatic_percentage = (automatic / transmission_length) * 100
@@ -90,8 +90,7 @@ def print_num_transmission_type():
     Funciton to return the count of desired transmission
     type of car.
     """
-    transmission_input = input('Which transmission type would you \
-    like to count? \n')
+    transmission_input = input('Enter a transmission type to see count: \n')
 
     if transmission_input == 'Automatic':
         automatic = transmission_type.count('Automatic')
@@ -153,8 +152,8 @@ def calculate_average_max_min_cost():
     Function to display the average cost of a car in 2023
     and at the lowest and highest cost of a car.
     """
-    max_min_average_input = input('Would you like to find the maximum \
-    , minimum or average cost of a car in this dataset? \n')
+    max_min_average_input = input('Would you like to find the maximum, \
+    minimum or average cost of a car in this dataset? \n')
 
     # Removing first row in Price column to remove the word 'Price' from list
     # to allow data cleaning
@@ -192,9 +191,8 @@ def car_sales_information():
     """
     Function to display total car sales in 2023 so far
     """
-    sales_input = input('Enter T for total sales, enter L for lowest sales \
-    , enter H for highest car sales and enter A for average car sales, \
-    if you would like to display all enter ALL \n')
+    sales_input = input('Enter T for total sales, L for lowest, \
+    H for highest or A for average car sales, of for all enter ALL \n')
     """
     Removing heading from sales list to allow for list to be converted
     into integers.
@@ -229,7 +227,7 @@ def car_sales_information():
         print(F'Average car sales are {round(average_car_sales)}.\n')
     elif sales_input == 'ALL':
         print(F'In this dataset there has been {total_car_sales} cars sold. \
-        # the lowest car sales are {lowest_car_sales} for Mercedes S-Class, \
+        lowest car sales are {lowest_car_sales} for Mercedes S-Class, \
         highest car sales are {highest_car_sales} for the Nissan Sentra \
         and Ford Escape and average car sales are \
         {round(average_car_sales)}.\n')
@@ -245,8 +243,7 @@ def counting_num_of_models_in_brand():
     car_make.pop(0)
 
     df = pd.value_counts(np.array(car_make))
-    print(F"There are {df.loc[brand_input]} {brand_input} models in \
-    this dataset\n")
+    print(F"There are {df.loc[brand_input]} {brand_input} models \n")
     selecting_questions()
 
 
