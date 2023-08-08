@@ -56,6 +56,13 @@ he print_car_info function was the first function I wanted to create as I wanted
 ### Unsolved Bugs
 
 ## Credits
+- The spreadsheet for this app was imported from [Kaggle](https://www.kaggle.com/) and can be found [here](https://www.kaggle.com/datasets/anoopjohny/2023-cars-dataset)
+- I referenced the Love Sandwiches course content to plan my project and set it up also
+- I used [Datacamp](https://www.datacamp.com/) for troubleshooting my code and getting idea on how to set up functions such as [numpy](https://images.datacamp.com/image/upload/v1676302459/Marketing/Blog/Numpy_Cheat_Sheet.pdf) and [pandas](https://images.datacamp.com/image/upload/v1676302204/Marketing/Blog/Pandas_Cheat_Sheet.pdf)
+- I also used [GeeksforGeeks](https://www.geeksforgeeks.org/) for solving problems I encountered also such as converting data to integeres [here](https://www.geeksforgeeks.org/python-converting-all-strings-in-list-to-integers/)
+- I used [GSpread](https://docs.gspread.org/en/latest/index.html) for creating my [blueprint](https://docs.gspread.org/en/latest/user-guide.html) for making the columns and rows easy to access withing my spreadsheet.
+- I would like to thank Sean and Sarah in Student Support for their help and advice.
+- I would like to thank Luke Buchanan, mentor for tutoring me and helping me plan out what I would do with this project and for listening to my ideas.
 
 ## Deployment
 - My project was deployed to Heroku following the steps for deployment video of the Love Sandwiches project, which are described below:
@@ -67,7 +74,23 @@ he print_car_info function was the first function I wanted to create as I wanted
     * Select 'Create App'
     * From next page select 'Settings' tab
     * On next pag scroll down and select 'Reveal Config Vars'
-    * In box saying 'KEY' enter 'CREDS'
-    * In the box saying 'VALUE'
-
+    * In box labelled 'KEY' enter 'CREDS'
+    * In the box labelled 'VALUE' copy and paste content of 'creds.json' file from codeanywhere workspace for project
+    * Click 'Add'
+    * In the next box labelelled 'KEY' insert 'PORT'
+    * In the box labelled 'VALUE' insert 8000
+    * Click 'Add'
+    * Scroll down page and in section lablled 'Buildpacks' select 'Add buildpack'
+    * Select box labelled 'python' and then select 'Save Changes'
+    * Select 'Add buildpack' once again and select box labelled 'nodejs' and select 'Save Changes'
+    * NOTE: Buildpacks must be in correct order, Python on top and Nodejs below
+    * Scroll up to top of the page and select tab labelled 'Deploy'
+    * In 'Deployment Method' section select 'GitHub'
+    * Below select 'Connect to GitHub'
+    * Search for GitHub repository name in 'repo-name' box and select 'Search' and when the name appears select 'Connect'
+    * Scroll down to Manual Deploys and select 'Deploy Branch' 
+    * Automatic Deploys may also be used
+    * Below 'Deploy Branch' the app can be seen to be created
+    * A button saying 'View' will appear when complete
+    * Select View and app will open in new tab and mock terminal can be seen
 

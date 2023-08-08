@@ -227,8 +227,11 @@ def exit_program():
     
     if confirm_exit == 'Y':
         exit()
-    if confirm_exit == 'N':
+    elif confirm_exit == 'N':
         selecting_questions()
+    else: 
+        print('Please enter a valid repsonse: Y or N')
+        exit_program()
 
 def selecting_questions():
     print("Hello! Welcome to Cars 2023 info session! \n")
