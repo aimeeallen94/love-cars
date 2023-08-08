@@ -221,8 +221,14 @@ def counting_num_of_models_in_brand():
     print(F"There are {df.loc[brand_input]} {brand_input} models in this dataset\n")
     selecting_questions()
 
+
 def exit_program():
-    exit()
+    confirm_exit = input('Are you sure you wish to exit? Y/N')
+    
+    if confirm_exit == 'Y':
+        exit()
+    if confirm_exit == 'N':
+        selecting_questions()
 
 def selecting_questions():
     print("Hello! Welcome to Cars 2023 info session! \n")
