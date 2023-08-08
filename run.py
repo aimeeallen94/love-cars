@@ -231,8 +231,8 @@ def car_sales_information():
         print(F'In this dataset there has been {total_car_sales} cars sold. \
         # the lowest car sales are {lowest_car_sales} for Mercedes S-Class, \
         highest car sales are {highest_car_sales} for the Nissan Sentra \
-        and Ford Escape and \ 
-        average car sales are {round(average_car_sales)}.\n')
+        and Ford Escape and average car sales are \
+        {round(average_car_sales)}.\n')
     else:
         print("Please enter a valid selection: T, L, H, A or ALL. ")
         car_sales_information()
