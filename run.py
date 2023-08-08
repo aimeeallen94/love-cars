@@ -47,8 +47,9 @@ def print_car_info():
         dictionary = dict(zip(result1, result2))
         print(dictionary)
     else:
-        print('Please enter a valid car model as seen in spreadsheet.')
+        print('Please enter a valid car model as seen in spreadsheet.\n')
         print_car_info()
+    selecting_questions()
 
 def calculate_percentage_transmission():
     """
@@ -65,16 +66,17 @@ def calculate_percentage_transmission():
 
     if percentage_question == 'Automatic':
         automatic_percentage = (automatic / transmission_length) * 100
-        print(F'Automatic cars take up {int(automatic_percentage)}% of this dataset')
+        print(F'Automatic cars take up {int(automatic_percentage)}% of this dataset \n')
     elif percentage_question == 'CVT':
         cvt_percentage = (cvt / transmission_length) * 100
-        print(F'CVT cars take up {int(cvt_percentage)}% of this dataset')
+        print(F'CVT cars take up {int(cvt_percentage)}% of this dataset\n')
     elif percentage_question == 'Manual':
         manual_percentage = (manual / transmission_length) * 100
-        print(F'Manual cars take up {int(manual_percentage)}% of this dataset')
+        print(F'Manual cars take up {int(manual_percentage)}% of this dataset\n')
     else:
-        print('Please enter a valid transmission type: Automatic, CVT, Manual.')
+        print('Please enter a valid transmission type: Automatic, CVT, Manual.\n')
         calculate_percentage_transmission()
+    selecting_questions()
 
 def print_num_transmission_type():
     """
@@ -84,15 +86,15 @@ def print_num_transmission_type():
     
     if transmission_input == 'Automatic':
         automatic = transmission_type.count('Automatic')
-        print(F'There are {automatic} cars in this dataset with an automatic transmission.')
+        print(F'There are {automatic} cars in this dataset with an automatic transmission.\n')
     elif transmission_input == 'CVT':
         cvt = transmission_type.count('CVT')
-        print(F'There are {cvt} cars in this dataset with a CVT transmission.')
+        print(F'There are {cvt} cars in this dataset with a CVT transmission.\n')
     elif transmission_input == 'Manual':
         manual = transmission_type.count('Manual')
-        print(F'There is {manual} car in this dataset with a manual transmission.')
+        print(F'There is {manual} car in this dataset with a manual transmission.\n')
     else:
-        print('Please enter valid transmission type: Automatic, CVT or Manual.')
+        print('Please enter valid transmission type: Automatic, CVT or Manual.\n')
         print_num_transmission_type()
     calculate_percentage_transmission()
 
@@ -106,31 +108,32 @@ def print_body_type():
 
     if body_type_input == 'SUV':
         SUV_count = body_type.count('SUV')
-        print(F'There were {SUV_count} cars with the body type of an SUV')
+        print(F'There were {SUV_count} cars with the body type of an SUV\n')
     elif body_type_input == 'Sedan':
         sedan_count = body_type.count('Sedan')               
-        print(F'There were {sedan_count} cars with the body type of a Sedan')
+        print(F'There were {sedan_count} cars with the body type of a Sedan\n')
     elif body_type_input == 'Truck':
         truck_count = body_type.count('Truck')
-        print(F'There were {truck_count} cars with the body type of a Truck')
+        print(F'There were {truck_count} cars with the body type of a Truck\n')
     elif body_type_input == 'Wagon':
         wagon_count = body_type.count('Wagon')          
-        print(F'There were {wagon_count} cars with the body type of a Wagon')
+        print(F'There were {wagon_count} cars with the body type of a Wagon\n')
     elif body_type_input == 'Minivan':
         minivan_count = body_type.count('Minivan')            
-        print(F'There were {minivan_count} cars with the body type of a Minivan')
+        print(F'There were {minivan_count} cars with the body type of a Minivan\n')
     elif body_type_input == 'Coupe':
         coupe_count = body_type.count('Coupe')        
-        print(F'There were {coupe_count} cars with the body type of a Coupe')
+        print(F'There were {coupe_count} cars with the body type of a Coupe\n')
     elif body_type_input == 'Convertible':
         convertible_count = body_type.count('Convertible')                        
-        print(F'There were {convertible_count} cars with the body type of a Convertible')
+        print(F'There were {convertible_count} cars with the body type of a Convertible.\n')
     elif body_type_input == 'Hatchback':
         hatchback_count = body_type.count('Hatchback')
-        print(F'There were {hatchback_count} cars with the body type of a Hatchback')
+        print(F'There were {hatchback_count} cars with the body type of a Hatchback. \n')
     else:
-        print('Please enter one of the following valid options: SUV, Sedan, Truck, Wagon, Minivan, Coupe, Convertible, Hatchback.')
+        print('Please enter one of the following valid options: SUV, Sedan, Truck, Wagon, Minivan, Coupe, Convertible, Hatchback.\n')
         print_body_type()
+    selecting_questions()
 
 def calculate_average_max_min_cost():
     """
@@ -159,16 +162,15 @@ def calculate_average_max_min_cost():
     maximum = np.max(cost_list)
 
     if max_min_average_input == 'Average':
-        print(F'The average cost of a car in 2023 is ${round(average)}')
-
+        print(F'The average cost of a car in 2023 is ${round(average)}\n')
     elif max_min_average_input == 'Minimum':
-        print(F'The lowest price of a car in 2023 is ${minimum}.')
-
+        print(F'The lowest price of a car in 2023 is ${minimum}.\n')
     elif max_min_average_input == 'Maximum':
-        print(F'The highest price of a car in 2023 is ${maximum}.')
+        print(F'The highest price of a car in 2023 is ${maximum}.\n')
     else:
         print('Please enter a valid option: Maximum, Minimum or Average.')
         calculate_average_max_min_cost()
+    selecting_questions()
 
 def car_sales_information():
     """
@@ -196,18 +198,19 @@ def car_sales_information():
     average_car_sales = np.mean(sales_list)
 
     if sales_input == 'T':
-        print(F'In 2023 so far there has been {total_car_sales} cars sold.')
+        print(F'In 2023 so far there has been {total_car_sales} cars sold.\n')
     elif sales_input == 'L':
-        print(F'In this dataset the lowest car sales are {lowest_car_sales} for the Mercedes S-Class')
+        print(F'In this dataset the lowest car sales are {lowest_car_sales} for the Mercedes S-Class \n')
     elif sales_input == 'H':
-        print(F'In this dataset the highest car sales are {highest_car_sales} for both the Nissan Sentra and Ford Escape.')
+        print(F'In this dataset the highest car sales are {highest_car_sales} for both the Nissan Sentra and Ford Escape.\n')
     elif sales_input == 'A':
-        print(F'In this dataset the average car sales are {round(average_car_sales)}.')
+        print(F'In this dataset the average car sales are {round(average_car_sales)}.\n')
     elif sales_input == 'ALL':
-        print(F'In 2023 so far there has been {total_car_sales} cars sold.\n the lowest car sales are {lowest_car_sales} for the Mercedes S-Class, \n the highest car sales are {highest_car_sales} for both the Nissan Sentra and Ford Escape \n and the average car sales are {round(average_car_sales)}.')
+        print(F'In 2023 so far there has been {total_car_sales} cars sold.\n the lowest car sales are {lowest_car_sales} for the Mercedes S-Class, \n the highest car sales are {highest_car_sales} for both the Nissan Sentra and Ford Escape \n and the average car sales are {round(average_car_sales)}.\n')
     else:
         print("Please enter a valid selection: T, L, H, A or ALL. ")
         car_sales_information()
+    selecting_questions()
 
 def counting_num_of_models_in_brand():
     brand_input = input('Which brand would you like to count? \n')
@@ -215,7 +218,11 @@ def counting_num_of_models_in_brand():
     car_make.pop(0)
  
     df = pd.value_counts(np.array(car_make))
-    print(F"There are {df.loc[brand_input]} {brand_input} models in this dataset")
+    print(F"There are {df.loc[brand_input]} {brand_input} models in this dataset\n")
+    selecting_questions()
+
+def exit_program():
+    exit()
 
 def selecting_questions():
     print("Hello! Welcome to Cars 2023 info session! \n")
@@ -226,9 +233,10 @@ def selecting_questions():
     print('4 - Car Cost Information') 
     print('5 - Car Sales Information')
     print('6 - Counting Number of Models for Desired Brands')
+    print('Exit - Exit app, I have found out all I need!')
     print("Don't worry you can make your way through all if you are interested!")
  
-    question_selection_input = input('Which question would you like to get the answer of? \n')
+    question_selection_input = input('Which question would you like to get the answer of or End Programme? \n')
     if question_selection_input == '1':
         print_car_info()
     elif question_selection_input == '2':
@@ -239,10 +247,12 @@ def selecting_questions():
         calculate_average_max_min_cost()
     elif question_selection_input == '5':
         car_sales_information()
-    elif question_selection_input == '5':
+    elif question_selection_input == '6':
         counting_num_of_models_in_brand()
+    elif question_selection_input == 'Exit':
+        exit_program()
     else:
-        print('Please enter a valid selection: 1,2,3,4,5')
+        print('Please enter a valid selection: 1, 2, 3, 4, 5, 6, Exit')
         selecting_questions()
     
 selecting_questions()
