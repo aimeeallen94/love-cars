@@ -48,8 +48,12 @@ he print_car_info function was the first function I wanted to create as I wanted
 ## Testing
 
 ### Validator Testing
+- At the time of testing and deployment I could not access the pep8 website due to an error on the website so I followed the steps on [PyPi](https://pypi.org/project/pep8/) here to import pep8 into my console and then used the command pep8 run.py to check for errors in my code and at the time of deployment none were visible.
+![Pep8testing](file:///Users/aimeeallen/Desktop/pep8.png)
 
 ### Accessibility Testing
+- I tested my project through Chromes Lighthouse testing and I am very happy with the scores.
+![LighthouseTesting](/assets/readme_images/lighthouse.png)
 
 ### Solved Bugs
 
