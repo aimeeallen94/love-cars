@@ -49,18 +49,29 @@ he print_car_info function was the first function I wanted to create as I wanted
 
 ### Validator Testing
 - At the time of testing and deployment I could not access the pep8 website due to an error on the website so I followed the steps on [PyPi](https://pypi.org/project/pep8/) here to import pep8 into my console and then used the command pep8 run.py to check for errors in my code and at the time of deployment none were visible.
-![Pep8testing](file:///Users/aimeeallen/Desktop/pep8.png)
+![Pep8testing](file:///Users/aimeeallen/Desktop/pep8testing.png)
 
 ### Accessibility Testing
 - I tested my project through Chromes Lighthouse testing and I am very happy with the scores.
 ![LighthouseTesting](/assets/readme_images/lighthouse.png)
 
 ### Solved Bugs
+* When I tested my code using PEP8 in my codeanywhere it returned many errors stating E501 line too long. I did not know how to solve this as I knew I couldn't text from a lot of lines within my code. I researched solutions to this issue and I came across a solution [here](https://peps.python.org/pep-0008/) whereby I could break lines up using a \ while still maintaining integrity of my code and functionality most importantly.
+* Another bug that I solved during this project was in the counting_num_of_models_in_brand function, I dicussed this in detail above but my blueprint for the project I had originally created would not help me generate answers correctly for this function so I had to take this information from the column and remove the first entry i.e. the heading, then create two different for loops, one to remove the commas from the numbers and create a new list of those results and the next one to convery these numbers into a list of integers so that they could be analysed and worked with.
 
 ### Unsolved Bugs
+* At time of deployment there are no unsolved bugs in the code.
+
+### Programs Used 
+- [LucidChart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=137488435595&km_CPC_Keyword=lucid%20app&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=598116882677&km_CPC_TargetID=kwd-302739930476&km_CPC_Country=1007880&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gclid=Cj0KCQjwz8emBhDrARIsANNJjS7kkvCgSYO-duQmZqWkt1Q0CGS9hIKJpdnfV-lDQSFyoNQVEjI7KFcaAoOmEALw_wcB) 
+- [Heroku](https://www.heroku.com/home)
+- [GitHub](https://github.com/)
+- [Codeanywhere](https://codeanywhere.com/signin)
+- [GoogleSheet](https://www.google.com/sheets/about/)
 
 ## Credits
 - The spreadsheet for this app was imported from [Kaggle](https://www.kaggle.com/) and can be found [here](https://www.kaggle.com/datasets/anoopjohny/2023-cars-dataset)
+- The link to the spreadsheet that I worked on for the duration of my project is [here](https://docs.google.com/spreadsheets/d/1i2zcGJxoFKk7v_tAH2Iy_3dxujUOKjPGjHLT9x9M02A/edit?usp=sharing)
 - I referenced the Love Sandwiches course content to plan my project and set it up also
 - I used [Datacamp](https://www.datacamp.com/) for troubleshooting my code and getting idea on how to set up functions such as [numpy](https://images.datacamp.com/image/upload/v1676302459/Marketing/Blog/Numpy_Cheat_Sheet.pdf) and [pandas](https://images.datacamp.com/image/upload/v1676302204/Marketing/Blog/Pandas_Cheat_Sheet.pdf)
 - I also used [GeeksforGeeks](https://www.geeksforgeeks.org/) for solving problems I encountered also such as converting data to integeres [here](https://www.geeksforgeeks.org/python-converting-all-strings-in-list-to-integers/)
