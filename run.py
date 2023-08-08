@@ -72,14 +72,13 @@ def calculate_percentage_transmission():
 
     if percentage_question == 'Automatic':
         automatic_percentage = (automatic / transmission_length) * 100
-        print(F'Automatic take up {int(automatic_percentage)}% of this \
-        dataset \n')
+        print(F'Automatic = {int(automatic_percentage)}% of this dataset \n')
     elif percentage_question == 'CVT':
         cvt_percentage = (cvt / transmission_length) * 100
-        print(F'CVT take up {int(cvt_percentage)}% of this dataset\n')
+        print(F'CVT = {int(cvt_percentage)}% of this dataset\n')
     elif percentage_question == 'Manual':
         manual_percentage = (manual / transmission_length) * 100
-        print(F'Manual take up {int(manual_percentage)}% of this dataset\n')
+        print(F'Manual = {int(manual_percentage)}% of this dataset\n')
     else:
         print('Please enter a valid option: Automatic, CVT, Manual.\n')
         calculate_percentage_transmission()
@@ -126,7 +125,7 @@ def print_body_type():
         print(F'There were {sedan_count} Sedan cars. \n')
     elif body_type_input == 'Truck':
         truck_count = body_type.count('Truck')
-        print(F'There were {truck_count} Truck cars k\n')
+        print(F'There were {truck_count} Truck cars \n')
     elif body_type_input == 'Wagon':
         wagon_count = body_type.count('Wagon')
         print(F'There were {wagon_count} Wagon cars. \n')
@@ -143,8 +142,8 @@ def print_body_type():
         hatchback_count = body_type.count('Hatchback')
         print(F'There were {hatchback_count} Hatchback cars. \n')
     else:
-        print('Please enter one of the following valid options: SUV, Sedan,\
-        Truck, Wagon, Minivan, Coupe, Convertible, Hatchback.\n')
+        print('Please enter: SUV, Sedan, Truck, Wagon, Minivan, \
+        Coupe, Convertible or Hatchback.\n')
         print_body_type()
     selecting_questions()
 
@@ -154,7 +153,7 @@ def calculate_average_max_min_cost():
     Function to display the average cost of a car in 2023
     and at the lowest and highest cost of a car.
     """
-    max_min_average_input = input('Would you like to find out the maximum \
+    max_min_average_input = input('Would you like to find the maximum \
     , minimum or average cost of a car in this dataset? \n')
 
     # Removing first row in Price column to remove the word 'Price' from list
@@ -193,9 +192,9 @@ def car_sales_information():
     """
     Function to display total car sales in 2023 so far
     """
-    sales_input = input('Enter T for total sales, enter L for lowest \
-    sales, enter H for highest car sales and enter A for average car \
-    sales, if you would like to display all enter ALL \n')
+    sales_input = input('Enter T for total sales, enter L for lowest sales \
+    , enter H for highest car sales and enter A for average car sales, \
+    if you would like to display all enter ALL \n')
     """
     Removing heading from sales list to allow for list to be converted
     into integers.
@@ -222,20 +221,18 @@ def car_sales_information():
     if sales_input == 'T':
         print(F"In this dataset {total_car_sales} cars have been old\n")
     elif sales_input == 'L':
-        print(F'In this dataset the lowest car sales are {lowest_car_sales} \
-        for the Mercedes S-Class \n')
+        print(F'Lowest sales are {lowest_car_sales} for Mercedes S-Class \n')
     elif sales_input == 'H':
-        print(F'In this dataset the highest car sales are \
-        {highest_car_sales} for both the Nissan Sentra and Ford Escape.\n')
+        print(F'Highest sales are {highest_car_sales} for Nissan Sentra & \
+        Ford Escape.\n')
     elif sales_input == 'A':
-        print(F'In this dataset the average car sales are \
-        {round(average_car_sales)}.\n')
+        print(F'Average car sales are {round(average_car_sales)}.\n')
     elif sales_input == 'ALL':
-        print(F'In 2023 so far there has been {total_car_sales} cars sold. \
-        \n the lowest car sales are {lowest_car_sales} for the \
-        Mercedes S-Class, \n the highest car sales are {highest_car_sales} \
-        or both the Nissan Sentra and Ford Escape \n and the average car \
-        sales are {round(average_car_sales)}.\n')
+        print(F'In this dataset there has been {total_car_sales} cars sold. \
+        # the lowest car sales are {lowest_car_sales} for Mercedes S-Class, \
+        highest car sales are {highest_car_sales} for the Nissan Sentra \
+        and Ford Escape and \ 
+        average car sales are {round(average_car_sales)}.\n')
     else:
         print("Please enter a valid selection: T, L, H, A or ALL. ")
         car_sales_information()
