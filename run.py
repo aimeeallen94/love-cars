@@ -129,15 +129,14 @@ def print_num_transmission_type():
     type of car.
     """
     transmission_input = input('Enter a transmission type to see count: \n')
-    transmission_input - transmission_input.lower()
 
-    if transmission_input == 'automatic':
+    if transmission_input == 'a=Automatic':
         automatic = transmission_type.count('Automatic')
         print(F'There are {automatic} automatic cars in this dataset \n')
-    elif transmission_input == 'cvt':
+    elif transmission_input == 'CVT':
         cvt = transmission_type.count('CVT')
         print(F'There are {cvt} CVT cars in this.\n')
-    elif transmission_input == 'manual':
+    elif transmission_input == 'Manual':
         manual = transmission_type.count('Manual')
         print(F'There is {manual} manual cars in this dataset.\n')
     else:
