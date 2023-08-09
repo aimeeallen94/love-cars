@@ -2,7 +2,6 @@ import csv
 import gspread
 import pandas as pd
 import numpy as np
-from car_model import *
 from google.oauth2.service_account import Credentials
 
 """
@@ -51,7 +50,7 @@ class Car:
                 self.car_year = car[2]
                 self.car_body_type = car[3]
                 self.fuel = car[5]
-                self.tranmission = car[6]
+                self.transmission = car[6]
                 self.max_speed = car[7]
                 self.car_price = car[8]
                 self.sales_figures = car[10]
@@ -71,31 +70,19 @@ class Car:
         print(F'Sales = {self.sales_figures}\n')
         print(F'Model = {self.car_model}\n')
 
-def print_car_info(car_model):
+def print_car_info():
     """
     Allows user to input desired car model and for console
     to return information about that car in a dictionary format        
     with the heading row.
     """
-    user_input = input("Please enter a car model(as seen on spreadsheet): \n")
+    car_model = input("Please enter a car model(as seen on spreadsheet): \n")
 
     my_car = Car(car_model)
-    my_car.this_car_info()
-
-#    if any(user_input == car[1] for car in cars[1:]):
-#        car = next(car for car in cars[1:] if user_input == car[1])
-#        result1 = headings
-#        result2 = car
-#        dictionary = dict(zip(result1, result2))
-#        print(dictionary)
-    #else:
-    #    print('INVALID DATA. Enter car model from spreadsheet.\n')
-    #    print_car_info()
+    my_car.display_information()
 
     print('_____________________________________________________')
     #selecting_questions()
-    display_information()
-#print_car_info(self, car_model_info)
 
 def calculate_percentage_transmission():
     """
@@ -361,4 +348,4 @@ def selecting_questions():
         print('INVALID DATA. Please enter: 1, 2, 3, 4, 5, 6 or Exit')
         selecting_questions()
 
-#selecting_questions()
+selecting_questions()
