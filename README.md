@@ -16,6 +16,7 @@ The information displayed to the user is easily understood and organised in its 
 
 ## Contents of Project
 - Data Cleaning
+- Creationg of Blueprint using Class and Instance Method
 - Making Data Accessible
 - Functions
 - User Options and Instructions
@@ -25,7 +26,8 @@ The information displayed to the user is easily understood and organised in its 
 - I had two options to choose from in relation to cleaning of the data in order to make it easier to manipluate and to give users the most accurate results also. I had spoken to my tutor about using the drop_duplicates() function imported through the Pandas library. I did attempt to do this however, unfortuantely it was taking too much time so I have added this as a feature I would like to extend onto when I do have more time. While attempting to do this I also found out that Codeanywhere could not iterate through more than approximately 100 lines without throws an error so in order to reduce these I used the functionality within Googlesheets to remove duplicates and to ensure the total dataset was less than 100 lines. 
 
 ### Making Data Accessible
-- Following on from advice of my tutor I decided to make a blueprint as such for each of the columns and the header row of my datasheet in order to make all of the data easier to access in the functions that would be wrote within the project. This helped immensley as data could be easily pulled in different functions as they were declared at a Global Scope meaning they could be used anywhere within the project.
+- Following on from the advice of my tutor I decided to define variables for the rows and columns that I knew I would need access to throughout my project for ease of use within the functions I was about to create. To do this I first declared my spreadsheet as a variable and got all values from that as a starting point for all the other information. This helped immensley as data could be easily pulled in different functions as they were declared at a Global Scope meaning they could be used anywhere within the project.
+![GetRowsAndColumnsImage](/assets/readme_images/rows_and_columns_get.png)
 
 ### Functions 
 - There were a number of functions I had thought of that would be possible for this project as I could see its potential for vast manipulation. 

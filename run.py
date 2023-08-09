@@ -61,6 +61,7 @@ class Car:
         Creating format for car info to print in
         """
         print(F'Make = {self.make}\n')
+        print(F'Model = {self.car_model}\n')
         print(F'Year = {self.car_year}\n')
         print(F'Body Type = {self.car_body_type}\n')
         print(F'Fuel = {self.fuel}\n')
@@ -68,7 +69,7 @@ class Car:
         print(F'Max Speed = {self.max_speed}\n')
         print(F'Price = {self.car_price}\n')
         print(F'Sales = {self.sales_figures}\n')
-        print(F'Model = {self.car_model}\n')
+
 
 def print_car_info():
     """
@@ -78,11 +79,15 @@ def print_car_info():
     """
     car_model = input("Please enter a car model(as seen on spreadsheet): \n")
 
-    my_car = Car(car_model)
-    my_car.display_information()
+    if(car_model in SHEET.worksheet('cars').col_values(2)):
+        my_car = Car(car_model)
+        my_car.display_information()
+    else:
+        print('Sorry, car not found')
 
-    print('_____________________________________________________')
-    #selecting_questions()
+    print('********************************************')
+    print('')
+    selecting_questions()
 
 def calculate_percentage_transmission():
     """
@@ -112,7 +117,8 @@ def calculate_percentage_transmission():
         print('INVALID DATA. Please enter: Automatic, CVT or Manual.\n')
         calculate_percentage_transmission()
 
-    print('_____________________________________________________')
+    print('********************************************')
+    print('')
     selecting_questions()
 
 
@@ -137,7 +143,8 @@ def print_num_transmission_type():
         print('INVALID DATA. Please enter: Automatic, CVT or Manual.\n')
         print_num_transmission_type()
 
-    print('_____________________________________________________')
+    print('********************************************')
+    print('')
     calculate_percentage_transmission()
 
 
@@ -178,7 +185,8 @@ def print_body_type():
         print('INVALID DATA. Please enter: SUV, Sedan, Truck, Wagon, Minivan,Coupe, Convertible or Hatchback.\n')
         print_body_type()
 
-    print('_____________________________________________________')
+    print('********************************************')
+    print('')
     selecting_questions()
 
 
@@ -220,7 +228,8 @@ def calculate_average_max_min_cost():
         print('INVALID DATA. Please enter: Maximum, Minimum or Average.')
         calculate_average_max_min_cost()
 
-    print('_____________________________________________________')
+    print('********************************************')
+    print('')
     selecting_questions()
 
 
@@ -268,7 +277,8 @@ def car_sales_information():
         print("INVALID DATA. Please enter: T, L, H, A or ALL. ")
         car_sales_information()
 
-    print('_____________________________________________________')
+    print('********************************************')
+    print('')
     selecting_questions()
 
 
@@ -285,7 +295,8 @@ def counting_num_of_models_in_brand():
     df = pd.value_counts(np.array(car_make))
     print(F"There are {df.loc[brand_input]} {brand_input} models \n")
 
-    print('_____________________________________________________')
+    print('********************************************')
+    print('')
     selecting_questions()
 
 
@@ -307,7 +318,27 @@ def exit_program():
         exit_program()
 
 def request_help():
-    help_input = input('Which question would you like more information on?')
+    help_input = input('Which question would you like further information on? ')
+
+    if help_input == '1':
+        print('This option allows you to enter a car model from the spreadsheet and returns information in a clearly read format in relation to the specified car, for example, Model = Q7, Make = Audi')
+    elif help_input == '2':
+        print('This option allows you to enter a desired transmission type: CVT, Manual or Gasoline and the terminal returns the number of cars with that transmission. There is a bonus question which allows you to see the percentage value of any of the transmission types also.')
+    elif help_input == '3':
+        print('This option allows you to enter a desired car body time and the3 console will return a count of the body type entered. Options are: SUV, Sedan, Coupe, Convertible, Hatchback, Minivan, Truck or Wagon')
+    elif help_input == '4':
+        print('This option provides you with the choice of displaying either the maximum, minimum or average car cost within this dataset by entering either: Maximum, Minimum or Average.')
+    elif help_input == '5':
+        print('This options allows the user to display the total, highest, lowest or average car sales within the dataset. This option also displays the names of the cars with the maximum and minimum sales. Alternatively, you can pick to display all four figures in one statement. Options are: H for highest, L for loweset, T for total, A for average and ALL to display all.')
+    elif help_input == '6':
+        print('This options allows you to enter a desired car brand and the terminal will display a count of models from the specified car brand.')
+    else:
+        print('INVALID INPUT: Please enter: 1, 2, 3, 4, 5 or 6.')
+
+    print('********************************************')
+    print('')
+    selecting_questions()
+
 
 def selecting_questions():
     """
