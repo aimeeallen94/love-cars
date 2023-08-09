@@ -2,6 +2,7 @@ import csv
 import gspread
 import pandas as pd
 import numpy as np
+from car_model import *
 from google.oauth2.service_account import Credentials
 
 """
@@ -56,20 +57,30 @@ class Car:
                 self.sales_figures = car[10]
                 self.car_model = car_model
 
-
-    def print_car_info(self, car_model_info):
+    def display_information(self):
         """
-        Allows user to input desired car model and for console
-        to return information about that car in a dictionary format
-        with the heading row.
+        Creating format for car info to print in
         """
-        user_input = input("Please enter a car model(as seen on spreadsheet): \n")
+        print(F'Make = {self.make}\n')
+        print(F'Year = {self.car_year}\n')
+        print(F'Body Type = {self.car_body_type}\n')
+        print(F'Fuel = {self.fuel}\n')
+        print(F'Transmission = {self.transmission}\n')
+        print(F'Max Speed = {self.max_speed}\n')
+        print(F'Price = {self.car_price}\n')
+        print(F'Sales = {self.sales_figures}\n')
+        print(F'Model = {self.car_model}\n')
 
-        car_model_info = None 
-        if request == 'Max Speed':
-            car_model_info = f'{self.max_speed}'
-            
-        return f'{request}:{self.max_speed}'
+def print_car_info(car_model):
+    """
+    Allows user to input desired car model and for console
+    to return information about that car in a dictionary format        
+    with the heading row.
+    """
+    user_input = input("Please enter a car model(as seen on spreadsheet): \n")
+
+    my_car = Car(car_model)
+    my_car.this_car_info()
 
 #    if any(user_input == car[1] for car in cars[1:]):
 #        car = next(car for car in cars[1:] if user_input == car[1])
@@ -81,9 +92,10 @@ class Car:
     #    print('INVALID DATA. Enter car model from spreadsheet.\n')
     #    print_car_info()
 
-        print('_____________________________________________________')
+    print('_____________________________________________________')
     #selecting_questions()
-print_car_info(self, car_model_info)
+    display_information()
+#print_car_info(self, car_model_info)
 
 def calculate_percentage_transmission():
     """
@@ -307,6 +319,8 @@ def exit_program():
         print('INVALID DATA, Please enter: Y or N')
         exit_program()
 
+def request_help():
+    help_input = input('Which question would you like more information on?')
 
 def selecting_questions():
     """
@@ -323,6 +337,7 @@ def selecting_questions():
     print('5 - Car Sales Information')
     print('6 - Counting Number of Models for Desired Brands')
     print('Exit - Exit app, I have found out all I need!')
+    print('Help - if you need some help!')
     print("You can make your way through all if you are interested!")
 
     question_selection_input = input('Which question do you choose or End Programme? \n')
@@ -340,6 +355,8 @@ def selecting_questions():
         counting_num_of_models_in_brand()
     elif question_selection_input == 'Exit':
         exit_program()
+    elif question_selection_input == 'Help':
+        request_help()
     else:
         print('INVALID DATA. Please enter: 1, 2, 3, 4, 5, 6 or Exit')
         selecting_questions()
