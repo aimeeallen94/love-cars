@@ -37,28 +37,53 @@ rating = SHEET.worksheet('cars').col_values(10)
 sales = SHEET.worksheet('cars').col_values(11)
 headings = SHEET.worksheet('cars').row_values(1)
 
-
-def print_car_info():
+class Car:
     """
-    Allows user to input desired car model and for console
-    to return information about that car in a dictionary format
-    with the heading row.
+    Class representing car within the spreadhseet
     """
-    user_input = input("Please enter a car model(as seen on spreadsheet): \n")
+    global cars
 
-    if any(user_input == car[1] for car in cars[1:]):
-        car = next(car for car in cars[1:] if user_input == car[1])
-        result1 = headings
-        result2 = car
-        dictionary = dict(zip(result1, result2))
-        print(dictionary)
-    else:
-        print('INVALID DATA. Enter car model from spreadsheet.\n')
-        print_car_info()
+    def __init__(self, car_model):
+        for car in cars:
+            if car_model == car[1]:
+                self.make = car[0]
+                self.car_year = car[2]
+                self.car_body_type = car[3]
+                self.fuel = car[5]
+                self.tranmission = car[6]
+                self.max_speed = car[7]
+                self.car_price = car[8]
+                self.sales_figures = car[10]
+                self.car_model = car_model
 
-    print('_____________________________________________________')
-    selecting_questions()
 
+    def print_car_info(self, car_model_info):
+        """
+        Allows user to input desired car model and for console
+        to return information about that car in a dictionary format
+        with the heading row.
+        """
+        user_input = input("Please enter a car model(as seen on spreadsheet): \n")
+
+        car_model_info = None 
+        if request == 'Max Speed':
+            car_model_info = f'{self.max_speed}'
+            
+        return f'{request}:{self.max_speed}'
+
+#    if any(user_input == car[1] for car in cars[1:]):
+#        car = next(car for car in cars[1:] if user_input == car[1])
+#        result1 = headings
+#        result2 = car
+#        dictionary = dict(zip(result1, result2))
+#        print(dictionary)
+    #else:
+    #    print('INVALID DATA. Enter car model from spreadsheet.\n')
+    #    print_car_info()
+
+        print('_____________________________________________________')
+    #selecting_questions()
+print_car_info(self, car_model_info)
 
 def calculate_percentage_transmission():
     """
@@ -319,4 +344,4 @@ def selecting_questions():
         print('INVALID DATA. Please enter: 1, 2, 3, 4, 5, 6 or Exit')
         selecting_questions()
 
-selecting_questions()
+#selecting_questions()
