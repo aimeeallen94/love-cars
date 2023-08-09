@@ -3,6 +3,8 @@
 This program was set up in order to analyse information provided on a Google Sheet called Love_Cars_2023. This dataset was originally imported from Kaggle. This program allows the user to pull information from the spreadsheet and finding out information such as the maximum cost of a car in this dataset, the total car sales, entering a car model and receiving information about the same car such as cost, customer rating, transmission type and so much more!
 On opening this program the user is presented with a number of questions they can find out the answer to and they can select which questiom they would like to begin with. The user will be able to get the answers to all questions if they wish. 
 The information displayed to the user is easily understood and organised in its format.
+Please find live link of my project [here](https://love-cars-b0e491dbcc46.herokuapp.com/)
+Please find link of Googlesheet [here](https://docs.google.com/spreadsheets/d/1i2zcGJxoFKk7v_tAH2Iy_3dxujUOKjPGjHLT9x9M02A/edit?usp=sharing)
 ![AmIResponsiveImage](/assets/readme_images/amiresponsive3.png)
 
 ## Planning of Project
