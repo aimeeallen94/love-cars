@@ -37,6 +37,7 @@ rating = SHEET.worksheet('cars').col_values(10)
 sales = SHEET.worksheet('cars').col_values(11)
 headings = SHEET.worksheet('cars').row_values(1)
 
+
 class Car:
     """
     Class representing car within the spreadhseet
@@ -65,7 +66,6 @@ class Car:
         print(F'Year = {self.car_year}\n')
         print(F'Body Type = {self.car_body_type}\n')
         print(F'Fuel = {self.fuel}\n')
-        print(F'Transmission = {self.transmission}\n')
         print(F'Max Speed = {self.max_speed}\n')
         print(F'Price = {self.car_price}\n')
         print(F'Sales = {self.sales_figures}\n')
@@ -74,7 +74,7 @@ class Car:
 def print_car_info():
     """
     Allows user to input desired car model and for console
-    to return information about that car in a dictionary format        
+    to return information about that car in a dictionary format
     with the heading row.
     """
     car_model = input("Please enter a car model(as seen on spreadsheet): \n")
@@ -88,6 +88,7 @@ def print_car_info():
     print('********************************************')
     print('')
     selecting_questions()
+
 
 def calculate_percentage_transmission():
     """
@@ -302,7 +303,7 @@ def counting_num_of_models_in_brand():
 
 def exit_program():
     """
-    Function to allow user to exit program when they 
+    Function to allow user to exit program when they
     have gotten answers to all questions they want
     """
     confirm_exit = input('Are you sure you wish to exit? Y/N')
@@ -316,6 +317,7 @@ def exit_program():
     else:
         print('INVALID DATA, Please enter: Y or N')
         exit_program()
+
 
 def request_help():
     help_input = input('Which question would you like further information on? ')
@@ -343,9 +345,9 @@ def request_help():
 def selecting_questions():
     """
     Function to alllow users to select which question
-    they would like to get the answer of 
-    
+    they would like to get the answer of
     """
+
     print("Hello! Welcome to Cars 2023 info session! \n")
     print('We have a range of questions you can get the answer of here:')
     print('1 - Car Model Information')
